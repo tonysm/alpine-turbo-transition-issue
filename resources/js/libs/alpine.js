@@ -1,3 +1,11 @@
+import Alpine from 'alpinejs';
+import focus from '@alpinejs/focus';
+window.Alpine = Alpine;
+
+Alpine.plugin(focus);
+
+Alpine.start();
+
 function initAlpineTurboPermanentFix() {
     document.addEventListener('turbo:before-render', () => {
         let permanents = document.querySelectorAll('[data-turbo-permanent]');
@@ -15,6 +23,4 @@ function initAlpineTurboPermanentFix() {
     });
 }
 
-if (window.Alpine !== undefined) {
-    initAlpineTurboPermanentFix();
-}
+initAlpineTurboPermanentFix();
